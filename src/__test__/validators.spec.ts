@@ -1,5 +1,5 @@
 
-  // const sum = require('./sum');
+// const sum = require('./sum');
 import {validators} from "../features/validators"
 
 const { isNumber, hasNumber } = validators

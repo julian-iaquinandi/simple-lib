@@ -23,10 +23,21 @@
     },
     "types": [
       "jest",
-      "node"
+      "node",
+      "reflect-metadata"
+    ],
+    "typeRoots": [
+      "../node_modules/@types",
+      "./src/types"
     ]
   },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ],
   "include": [
-    "src/**/*"
+    "./src/**/*.tsx",
+    "./src/**/*.ts"
   ]
 }
