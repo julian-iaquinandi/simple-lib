@@ -22,8 +22,8 @@
       ]
     },
     "types": [
-      "jest",
-      "node",
+      "@types/jest",
+      "@types/node",
       "reflect-metadata"
     ],
     "typeRoots": [
