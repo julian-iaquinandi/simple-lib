@@ -10,7 +10,7 @@ export const validators = {
         info: `Length: ${input.length}`
       }
     } else {
-      isNaN(input as any) ? false : true
+      return isNaN(input as any) ? false : true
     }
   },
 

@@ -10,7 +10,7 @@ test('Checks if char is a number', () => {
 })
 
 test('Checks that input is a char', () => {
-  expect(isCharNumber('aa')).toBe({
+  expect(isCharNumber('aa')).toStrictEqual({
     type: 'input',
     message: 'isCharNumber expects a char - string with length of 1',
     received: 'aa',
