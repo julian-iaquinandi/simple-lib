@@ -6,3 +6,5 @@ export interface ValidationError {
   received: string,
   info: string
 }
+
+export type Validation = boolean | boolean[] | ValidationError

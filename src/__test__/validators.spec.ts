@@ -4,12 +4,13 @@ import { validators } from '../features/validators'
 
 const { isCharNumber, hasNumber } = validators
 
-test('Checks if char is a number', () => {
+test('isCharNumber - Is the input string a number', () => {
   expect(isCharNumber('a')).toBe(false)
   expect(isCharNumber('1')).toBe(true)
 })
 
-test('Checks that input is a char', () => {
+test('isCharNumber - Is the input string a char length === 1) ', () => {
+
   expect(isCharNumber('aa')).toStrictEqual({
     type: 'input',
     message: 'isCharNumber expects a char - string with length of 1',
