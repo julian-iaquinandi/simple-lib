@@ -1,8 +1,6 @@
-import { Validation, ValidationError } from 'validators.types'
+import { Validation, ValidationError } from '../types'
 
 const isValidationError = (validation: Validation | ValidationError): validation is ValidationError => (validation as ValidationError).message !== undefined
-
-
 
 export const isCharNumber = (input: string): boolean | ValidationError => {
   if (input.length > 1) {
@@ -17,10 +15,12 @@ export const isCharNumber = (input: string): boolean | ValidationError => {
   }
 }
 
-export const hasNumber = (input: string): Validation => {
+export const includesNumber = (input: string): Validation => {
   const inputArr = input.split("")
-  const output: boolean[] | ValidationError = []
+  const output: Validation = []
   let error: ValidationError | null
+
+  // TODO: Check input for errors
 
   for (const char of inputArr) {
     const result = isCharNumber(char)
@@ -36,8 +36,9 @@ export const hasNumber = (input: string): Validation => {
 
   if (error) return error
 
-  const outputs = output.filter(Boolean)
-  return outputs.length === input.length
+  const result = output.includes(true)
+
+  return result
 
 }
 

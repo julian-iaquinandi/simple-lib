@@ -1,12 +1,11 @@
 
 // const sum = require('./sum');
-import { validators } from '../features/validators'
-
-const { isCharNumber, hasNumber } = validators
+import { isCharNumber, includesNumber } from '../features/validators'
 
 test('isCharNumber - Is the input string a number', () => {
   expect(isCharNumber('a')).toBe(false)
   expect(isCharNumber('1')).toBe(true)
+  expect(isCharNumber('$')).toBe(false)
 })
 
 test('isCharNumber - Is the input string a char length === 1) ', () => {
@@ -19,6 +18,8 @@ test('isCharNumber - Is the input string a char length === 1) ', () => {
   })
 })
 
-// test('Checks if string contains a number', () => {
-//   expect(hasNumber('1')).toBe('0')
-// })
+test('Checks if string contains a number', () => {
+  expect(includesNumber('akakakal1')).toBe(true)
+  expect(includesNumber('1')).toBe(true)
+  expect(includesNumber('aaaaaa')).toBe(false)
+})
