@@ -1,8 +1,8 @@
+import { isValidationError } from '../type-gaurds'
 import { Validation, ValidationError } from '../types'
 
-const isValidationError = (validation: Validation | ValidationError): validation is ValidationError => (validation as ValidationError).message !== undefined
 
-export const isCharNumber = (input: string): boolean | ValidationError => {
+const isCharNumber = (input: string): boolean | ValidationError => {
   if (input.length > 1) {
     return {
       type: 'input',
@@ -15,12 +15,10 @@ export const isCharNumber = (input: string): boolean | ValidationError => {
   }
 }
 
-export const includesNumber = (input: string): Validation => {
+const includesNumber = (input: string): Validation => {
   const inputArr = input.split("")
   const output: Validation = []
   let error: ValidationError | null
-
-  // TODO: Check input for errors
 
   for (const char of inputArr) {
     const result = isCharNumber(char)
@@ -36,10 +34,11 @@ export const includesNumber = (input: string): Validation => {
 
   if (error) return error
 
-  const result = output.includes(true)
-
-  return result
+  return output.includes(true)
 
 }
 
-
+export const str = {
+  isCharNumber,
+  includesNumber
+}
